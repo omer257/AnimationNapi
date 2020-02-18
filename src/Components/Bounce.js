@@ -16,14 +16,15 @@ const bounce = keyframes`
   }
 `;
 
-const grow = keyframes`
+const changeColors = keyframes`
   from {
-    transform: scale(0.2, 0.5);
+    background-color:pink;
   }
-  to {
-    transform: scale(1.5, 0.8);
+  to { 
+    background-color:blue;
   }
 `;
+
 
 const Container = styled.div`
   width: 100%;
@@ -40,13 +41,16 @@ const LogoWrapper = styled.div`
   background-color:red;
   border-radius:100%;
   left: calc(50% - ${LOGO_SIZE} / 2);
-  animation-name: ${bounce};
-  animation-duration: ${DURATION};
-  animation-direction: alternate;
-  animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
-  animation-iteration-count: infinite;
+  animation: 
+  ${bounce} ${DURATION} alternate cubic-bezier(0.95, 0.05, 0.795, 0.035)  infinite,
+  ${changeColors} 3s alternate cubic-bezier(0.95, 0.05, 0.795, 0.035)  infinite;
 `;
  
+// animation-name: ${bounce} 3s;
+// animation-duration: ${DURATION};
+// animation-direction: alternate;
+// animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+// animation-iteration-count: infinite;
 
 function Loading() {
   return (
