@@ -6,7 +6,7 @@ import styles from './new.css';
 
 
 function App() {
-  console.log(styles)
+  console.log(styles);
   const [state,setState] = useState({loading:false,data:[]});
 
   function compare(a, b) {  

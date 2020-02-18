@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useState} from "react";
 import styled, { keyframes } from "styled-components"; 
+import ColorPicker from './ColorPicker';
 
 const LOGO_SIZE = "48px";
 const DURATION = "0.5s";
@@ -53,8 +54,18 @@ const LogoWrapper = styled.div`
 // animation-iteration-count: infinite;
 
 function Loading() {
+const [state,setState] = useState('#fff'); 
+
+  const handleChangeComplete = (color) => {
+    setState(color.hex);
+    console.log(color);
+    
+  };
+
   return (
     <Container>
+      <ColorPicker color={ state}
+        onChange={handleChangeComplete}></ColorPicker>
       <LogoWrapper /> 
     </Container>
   );
