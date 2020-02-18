@@ -20,13 +20,18 @@ function App() {
     return comparison;
   }
   useEffect(()=>{
+    setState({...state, loading:true })
+
     fetch('http://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
       .then(data => { 
         const startsWithN = data.filter((item) => item.title.startsWith("s")).sort(compare);
-               setState({...state, data:startsWithN })
+               setState({...state, data:startsWithN,loading:false })
       });
   },[])
+  if(state.loading){
+    return "Loading...";
+  }
   
   return (
     <div className="App">

@@ -10,8 +10,7 @@ import Fetch from './Fetch'
 
 export default function App() {
   return (
-    <Router>
-      <div>
+    <Router> 
         <nav>
           <ul>
             <li>
@@ -32,8 +31,7 @@ export default function App() {
           <Route path="/">
             <Bounce />
           </Route>
-        </Switch>
-      </div>
+        </Switch> 
     </Router>
   );
 }
