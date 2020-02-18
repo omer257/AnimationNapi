@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 import Bounce from './Bounce'
 import Fetch from './Fetch'
@@ -15,10 +15,10 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Animation</NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/api">Api</NavLink>
             </li> 
           </ul>
         </nav>
@@ -26,7 +26,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
+          <Route path="/api">
             <Fetch />
           </Route> 
           <Route path="/">
