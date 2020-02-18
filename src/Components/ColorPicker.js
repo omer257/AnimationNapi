@@ -1,6 +1,6 @@
-import React from 'react'
-import reactCSS from 'reactcss'
-import { SketchPicker } from 'react-color'
+import React from 'react';
+import reactCSS from 'reactcss';
+import { SketchPicker } from 'react-color';
 
 class SketchExample extends React.Component {
   state = {
@@ -13,22 +13,22 @@ class SketchExample extends React.Component {
   };
 
   handleClose = () => {
-    this.setState({ displayColorPicker: false })  
-    this.props.onChange(this.props.id,this.state.color)
+    this.setState({ displayColorPicker: false })
+    this.props.onChange(this.props.id, this.state.color)
   };
 
-  handleChange = (color) => {  
+  handleChange = (color) => {
     this.setState({ color: color.hex })
   };
 
-  render() {  
+  render() {
     const styles = reactCSS({
       'default': {
         color: {
           width: '36px',
           height: '14px',
           borderRadius: '2px',
-          background: `${ this.state.color}`,
+          background: `${this.state.color}`,
         },
         swatch: {
           padding: '5px',
@@ -53,16 +53,15 @@ class SketchExample extends React.Component {
     });
 
     return (
-      <div>
-        <div style={ styles.swatch } onClick={ this.handleClick }>
-          <div style={ styles.color } />
+      <React.Fragment>
+        <div style={styles.swatch} onClick={this.handleClick}>
+          <div style={styles.color} />
         </div>
-        { this.state.displayColorPicker ? <div style={ styles.popover }>
-          <div style={ styles.cover } onClick={ this.handleClose }/>
-          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
-        </div> : null }
-
-      </div>
+        {this.state.displayColorPicker ? <div style={styles.popover}>
+          <div style={styles.cover} onClick={this.handleClose} />
+          <SketchPicker color={this.state.color} onChange={this.handleChange} />
+        </div> : null}
+      </React.Fragment>
     )
   }
 }

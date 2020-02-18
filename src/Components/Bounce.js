@@ -1,5 +1,5 @@
 import React, { useState } from "react"; 
-import ColorPicker from './ColorPicker'; 
+import ColorPickerWrap from './ColorPickerWrap'; 
 import Button from '../Components/Button';
 import Ball from '../Components/Ball';
 import CreateRandomColor from '../HelperMethods/CreateRandomColor';
@@ -16,6 +16,7 @@ function Loading() {
   const clickAnimationColor = () => {
     setStateShowAnimationColor(!stateAnimationColor); 
   }; 
+  
   const handleColorPickerComplete = (id, color) => {
     const newColors = colors.slice();
     newColors[id] = color;
@@ -28,9 +29,7 @@ function Loading() {
 
   return (
     <React.Fragment> 
-      {colors.map((item, i) => {
-        return <ColorPicker key={i} id={i} color={colors[i]} onChange={handleColorPickerComplete} />
-      })}
+      <ColorPickerWrap colors={colors} handleColorPickerComplete={handleColorPickerComplete}></ColorPickerWrap>
       <Ball toggle={stateAnimation} showColor={stateAnimationColor} colorList={colors} className={!stateAnimation?'pause':''}></Ball>
       <Button onClick={addColor}>Add Color</Button>
       <Button onClick={clickAnimationColor} status={stateAnimationColor}>Change colors</Button>
