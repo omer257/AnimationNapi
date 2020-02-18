@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       {state.data.map((item)=>{ 
-        let className = item.title[item.title.length -1]==="e"?'blue':'red'
+        let className = item.title[item.title.length -1]==="e"?'mark':''
         return <div className={className} key={item.id}>{item.title}</div>
       })}
     </div>

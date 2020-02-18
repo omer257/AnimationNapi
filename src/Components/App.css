@@ -1,4 +1,11 @@
 
+:root {
+  --drop-height: 200px;
+  --logo-size: 48px;
+  --offset: 50px;
+  --shadow-height: 8px;
+}
+
 html, body {
   height: 100%;
   max-height:100%;
@@ -14,3 +21,27 @@ html, body {
   position: absolute;
 }
  
+.mark{background-color:red;}
+.red{color:red;}
+.pause{ -webkit-animation-play-state: paused !important;
+  -moz-animation-play-state: paused !important;
+  -o-animation-play-state: paused !important; 
+  animation-play-state: paused !important;}
+
+
+.ball { 
+	top: 30%;
+	transform: translateY(-50%);
+  width: var(--logo-size);
+  height: var(--logo-size);
+  border-radius: 100%;
+  background-color: salmon; 
+  position: absolute; 
+  left: calc(50% - var(--logo-size)/2);
+  
+  animation-name: example;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+animation-timing-function: cubic-bezier(.47,.03,.83,.67);
+  animation-direction: alternate;
+}

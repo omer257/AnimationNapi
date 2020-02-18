@@ -1,70 +1,69 @@
 import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import ColorPicker from './ColorPicker';
-import KeyFrameBounce from './KeyFrames/KeyFrameBounce'
-import './App.css'
+import KeyFrameBounce from '../KeyFrames/KeyFrameBounce';
+import KeyFrameColorChange from '../KeyFrames/KeyFrameColorChange';
+import Button from '../Components/Button';
+import  './App.css'
 
-function Loading() {
-  const [state, setState] = useState(['blue', 'red', 'yellow']);
-  const [stateAnimation, setStateAnimation] = useState(true);
-  const [stateAnimationColor, setStateAnimationColor] = useState(false);
+const CIRCLE_SIZE = "48px";  
 
-  const handleStopAnim = () => {
-    setStateAnimation(!stateAnimation);
-  };
-  const handleColorAnimation = () => {
-    setStateAnimationColor(!stateAnimationColor);
-  };
 
-  const handleChangeComplete = (id, color) => {
-    const newColors = state.slice();
-    newColors[id] = color;
-    setState(newColors);
-  };
-
-  const CIRCLE_SIZE = "48px";  
- 
-  const changeColors = keyframes`
-  0% { background-color:${state[0]};} 
-  30% { background-color:${state[1]};} 
-  80% { background-color:${state[2]};} 
-`;   
-
-  const LogoWrapper = styled.div`
-  width: ${CIRCLE_SIZE};
-  height: ${CIRCLE_SIZE}; 
-  top: calc(50% - ${CIRCLE_SIZE} / 2);
-	transform: translateY(calc(50% - ${CIRCLE_SIZE} / 2));
-  position: absolute;
-  border:1px solid black; 
-  border-radius:100%;
-  left: calc(50% - ${CIRCLE_SIZE} / 2);
-  animation: 
-  ${KeyFrameBounce},
-  ${changeColors} 3s alternate cubic-bezier(0.95, 0.05, 0.795, 0.035)  infinite
-  ${props => {
-    if (props.colors) {
-      return `,${changeColors} 3s alternate cubic-bezier(0.95, 0.05, 0.795, 0.035)  infinite;`;
-    }
-    if (props.toggle) {
-      return `
-    -webkit-animation-play-state: paused !important;
-    -moz-animation-play-state: paused !important;
-    -o-animation-play-state: paused !important; 
-    animation-play-state: paused !important;
-    `;
-    }
-  }}
+const LogoWrapper = styled.div`
+width: ${CIRCLE_SIZE};
+height: ${CIRCLE_SIZE}; 
+top: calc(50% - ${CIRCLE_SIZE} / 2);
+transform: translateY(calc(50% - ${CIRCLE_SIZE} / 2));
+position: absolute;
+border:1px solid black; 
+border-radius:100%;
+left: calc(50% - ${CIRCLE_SIZE} / 2);
+animation: 
+${KeyFrameBounce},
+${KeyFrameColorChange} 
 `;
 
+function Loading() {
+  const [colors, setColors] = useState([getRandomColor(), getRandomColor(),getRandomColor()]);
+  const [stateAnimation, setStateAnimation] = useState(false);
+  const [stateAnimationColor, setStateShowAnimationColor] = useState(false);
+
+  const clickAnimationBounce = () => {
+    setStateAnimation(!stateAnimation);
+  };
+  const clickAnimationColor = () => {
+    setStateShowAnimationColor(!stateAnimationColor);
+
+  }; 
+  const handleColorPickerComplete = (id, color) => {
+    const newColors = colors.slice();
+    newColors[id] = color;
+    setColors(newColors);
+  };
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  const addColor = () => { 
+    setColors([...colors,getRandomColor()]);
+  };
+
+
   return (
-    <React.Fragment>
-      {state.map((item, i) => {
-        return <ColorPicker key={i} id={i} color={state[i]} onChange={handleChangeComplete} />
+    <React.Fragment> 
+      {colors.map((item, i) => {
+        return <ColorPicker key={i} id={i} color={colors[i]} onChange={handleColorPickerComplete} />
       })}
-      <div onClick={handleColorAnimation}>Change colors</div>
-      <div onClick={handleStopAnim} >Animate</div>
-      <LogoWrapper toggle={stateAnimation} colors={stateAnimationColor} />
+      <Button onClick={addColor}>Add Color</Button>
+      <Button onClick={clickAnimationColor} status={stateAnimationColor}>Change colors</Button>
+      <Button onClick={clickAnimationBounce} status={stateAnimation}>Animate</Button> 
+      <LogoWrapper toggle={stateAnimation} showColor={stateAnimationColor} colorList={colors} className={!stateAnimation?'pause':''} />
     </React.Fragment>
   );
 }
