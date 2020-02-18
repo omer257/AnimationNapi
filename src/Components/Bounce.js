@@ -6,7 +6,7 @@ import './App.css'
 
 function Loading() {
   const [state, setState] = useState(['blue', 'red', 'yellow']);
-  const [stateAnimation, setStateAnimation] = useState(false);
+  const [stateAnimation, setStateAnimation] = useState(true);
   const [stateAnimationColor, setStateAnimationColor] = useState(false);
 
   const handleStopAnim = () => {
