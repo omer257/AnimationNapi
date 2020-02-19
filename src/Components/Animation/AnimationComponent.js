@@ -1,8 +1,8 @@
 import React, { useState } from "react"; 
-import ColorPickerWrap from './ColorPickers/ColorPickerWrap'; 
-import Button from './Button';
+import ColorPickerWrap from '../ColorPickers/ColorPickerWrap'; 
+import Button from '../Button';
 import Ball from './Ball';
-import CreateRandomColor from '../HelperMethods/CreateRandomColor';
+import CreateRandomColor from '../../HelperMethods/CreateRandomColor';
 
 const Animation = ()=> {
   const [colors, setColors] = useState([CreateRandomColor(), CreateRandomColor(),CreateRandomColor()]);

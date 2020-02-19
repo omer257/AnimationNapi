@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { useHttp } from '../Hooks/Http'
 
-function App() {
+const Fetch = ()=>{
   const [isLoading, fetchedData] = useHttp('http://jsonplaceholder.typicode.com/todos', []);
 
   const todos = fetchedData
@@ -34,5 +34,5 @@ function App() {
   return content;
 }
 
-export default App;
+export default Fetch;
 

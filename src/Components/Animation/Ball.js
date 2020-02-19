@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components"; 
-import KeyFrameBounce from '../KeyFrames/KeyFrameBounce';
-import KeyFrameColorChange from '../KeyFrames/KeyFrameColorChange';  
+import KeyFrameBounce from '../../KeyFrames/KeyFrameBounce';
+import KeyFrameColorChange from '../../KeyFrames/KeyFrameColorChange';  
 
 const BALL_SIZE = "48px";   
 const BallComponent = styled.div`
