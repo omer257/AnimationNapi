@@ -19,7 +19,7 @@ const Fetch = ()=>{
     return comparison;
   }
 
-  let content = <p>Loading characters...</p>;
+  let content = <p>Loading data...</p>;
 
   if (!isLoading && todos && todos.length > 0) {
     content = todos.map((item) => {
