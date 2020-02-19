@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/AnimationNapi/static/css/main.0f593d71.chunk.css",
-    "main.js": "/AnimationNapi/static/js/main.a5ba4b9c.chunk.js",
-    "main.js.map": "/AnimationNapi/static/js/main.a5ba4b9c.chunk.js.map",
+    "main.js": "/AnimationNapi/static/js/main.06de9254.chunk.js",
+    "main.js.map": "/AnimationNapi/static/js/main.06de9254.chunk.js.map",
     "runtime-main.js": "/AnimationNapi/static/js/runtime-main.cf3cbd20.js",
     "runtime-main.js.map": "/AnimationNapi/static/js/runtime-main.cf3cbd20.js.map",
     "static/js/2.76cdb09e.chunk.js": "/AnimationNapi/static/js/2.76cdb09e.chunk.js",
     "static/js/2.76cdb09e.chunk.js.map": "/AnimationNapi/static/js/2.76cdb09e.chunk.js.map",
     "index.html": "/AnimationNapi/index.html",
-    "precache-manifest.f61041829f9697d7d7d4613fbb936475.js": "/AnimationNapi/precache-manifest.f61041829f9697d7d7d4613fbb936475.js",
+    "precache-manifest.20801c0bf5c06c9d5ee9efb08e91eb58.js": "/AnimationNapi/precache-manifest.20801c0bf5c06c9d5ee9efb08e91eb58.js",
     "service-worker.js": "/AnimationNapi/service-worker.js",
     "static/css/main.0f593d71.chunk.css.map": "/AnimationNapi/static/css/main.0f593d71.chunk.css.map",
     "static/js/2.76cdb09e.chunk.js.LICENSE.txt": "/AnimationNapi/static/js/2.76cdb09e.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cf3cbd20.js",
     "static/js/2.76cdb09e.chunk.js",
     "static/css/main.0f593d71.chunk.css",
-    "static/js/main.a5ba4b9c.chunk.js"
+    "static/js/main.06de9254.chunk.js"
   ]
 }
