@@ -1,21 +1,15 @@
 import React from "react";
-import { BrowserRouter, Switch, Route  } from "react-router-dom";
-import Header from '../Components/Header'
-import Bounce from './Bounce';
-import Fetch from './Fetch';
+import { BrowserRouter } from "react-router-dom";
+import Header from '../Components/Header' 
+import Routes from '../Routes/Index';
 
-export default function App() {
+const App = ()=>{
   return (
     <BrowserRouter> 
        <Header></Header>
-        <Switch>
-          <Route path="/api">
-            <Fetch />
-          </Route> 
-          <Route path="/">
-            <Bounce />
-          </Route>
-        </Switch> 
+       <Routes></Routes>
     </BrowserRouter>
   );
 }
+
+export default App;

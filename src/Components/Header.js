@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink} from "react-router-dom"; 
 
-export default function Header() {
+ const Header =()=> {
   return (
     <nav>
           <ul>
             <li>
-              <NavLink to="/">Animation</NavLink>
+              <NavLink exact to="/">Animation</NavLink>
             </li>
             <li>
               <NavLink to="/api">Api</NavLink>
@@ -15,3 +15,5 @@ export default function Header() {
         </nav> 
   );
 }
+
+export default Header;

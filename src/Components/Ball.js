@@ -18,7 +18,7 @@ ${KeyFrameBounce},
 ${KeyFrameColorChange} 
 `;
 
-function Ball(props) {  
+const Ball = (props)=> {  
   return ( 
       <BallComponent {...props}/>
   );

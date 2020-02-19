@@ -1,11 +1,11 @@
 import React, { useState } from "react"; 
 import ColorPickerWrap from './ColorPickerWrap'; 
-import Button from '../Components/Button';
-import Ball from '../Components/Ball';
+import Button from './Button';
+import Ball from './Ball';
 import CreateRandomColor from '../HelperMethods/CreateRandomColor';
-import  './App.css' 
+import  './App.css'; 
 
-function Loading() {
+const Animation = ()=> {
   const [colors, setColors] = useState([CreateRandomColor(), CreateRandomColor(),CreateRandomColor()]);
   const [stateAnimation, setStateAnimation] = useState(false);
   const [stateAnimationColor, setStateShowAnimationColor] = useState(false);
@@ -31,11 +31,13 @@ function Loading() {
     <React.Fragment> 
       <ColorPickerWrap colors={colors} handleColorPickerComplete={handleColorPickerComplete}></ColorPickerWrap>
       <Ball toggle={stateAnimation} showColor={stateAnimationColor} colorList={colors} className={!stateAnimation?'pause':''}></Ball>
-      <Button onClick={addColor}>Add Color</Button>
-      <Button onClick={clickAnimationColor} status={stateAnimationColor}>Change colors</Button>
-      <Button onClick={clickAnimationBounce} status={stateAnimation}>Animate</Button> 
+      <div>
+        <Button onClick={addColor}>Add Color</Button>
+        <Button onClick={clickAnimationBounce} status={stateAnimation}>Bounce ball</Button> 
+        <Button onClick={clickAnimationColor} status={stateAnimationColor}>Change colors</Button>
+      </div>
      </React.Fragment>
   );
 }
 
-export default Loading;
+export default Animation;

@@ -1,7 +1,7 @@
 import React from "react"; 
 import ColorPicker from './ColorPicker'; 
 
-export default (props)=>{
+const colorPickerWrap =  (props)=>{
   return (
     <React.Fragment> 
     {props.colors.map((item, i) => {
@@ -10,3 +10,5 @@ export default (props)=>{
     </React.Fragment> 
   );
 }
+
+export default colorPickerWrap;

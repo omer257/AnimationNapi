@@ -1,34 +1,31 @@
-import React from 'react';
+import React,{useState} from 'react';
 import reactCSS from 'reactcss';
 import { SketchPicker } from 'react-color';
 
-class SketchExample extends React.Component {
-  state = {
-    displayColorPicker: false,
-    color: this.props.color,
+const SketchExample = (props)=>{
+  const [displayColorPicker,setdisplayColorPicker] = useState(false);
+  const [colors,setcolors] = useState(props.color); 
+
+  const handleClick = () => {
+    setdisplayColorPicker(!displayColorPicker);
   };
 
-  handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  const handleClose = () => {
+    setdisplayColorPicker(false);
+    props.onChange(props.id, colors);
   };
 
-  handleClose = () => {
-    this.setState({ displayColorPicker: false })
-    this.props.onChange(this.props.id, this.state.color)
+  const handleChange = (color) => {
+    setcolors(color.hex);
   };
-
-  handleChange = (color) => {
-    this.setState({ color: color.hex })
-  };
-
-  render() {
+ 
     const styles = reactCSS({
       'default': {
         color: {
           width: '36px',
           height: '14px',
           borderRadius: '2px',
-          background: `${this.state.color}`,
+          background: `${colors}`,
         },
         swatch: {
           padding: '5px',
@@ -54,16 +51,15 @@ class SketchExample extends React.Component {
 
     return (
       <React.Fragment>
-        <div style={styles.swatch} onClick={this.handleClick}>
+        <div style={styles.swatch} onClick={handleClick}>
           <div style={styles.color} />
         </div>
-        {this.state.displayColorPicker ? <div style={styles.popover}>
-          <div style={styles.cover} onClick={this.handleClose} />
-          <SketchPicker color={this.state.color} onChange={this.handleChange} />
+        {displayColorPicker ? <div style={styles.popover}>
+          <div style={styles.cover} onClick={handleClose} />
+          <SketchPicker color={colors} onChange={handleChange} />
         </div> : null}
       </React.Fragment>
     )
-  }
-}
+  } 
 
 export default SketchExample

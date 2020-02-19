@@ -1,22 +1,18 @@
-import React from 'react'; 
-// import styles from './App.css'; 
+import React from 'react';  
 import { useEffect } from 'react';
-import { useState } from 'react';
-import styles from './new.css'; 
+import { useState } from 'react'; 
 
 
-function App() {
-  console.log(styles);
+function App(props) { 
   const [state,setState] = useState({loading:false,data:[]});
 
-  function compare(a, b) {  
-    let comparison = 0;
-    comparison = a.title > b.title?1:-1;
-    // if (a.title > b.title) {
-    //   comparison = a.title > b.title?1:-1;
-    // } else if (a.title  < b.title) {
-    //   comparison = -1;
-    // }
+  const compare = (a, b)=>{  
+    let comparison = 0; 
+    if (a.title > b.title) {
+      comparison = a.title > b.title?1:-1;
+    } else if (a.title  < b.title) {
+      comparison = -1;
+    }
     return comparison;
   }
   useEffect(()=>{
