@@ -3,7 +3,6 @@ import ColorPickerWrap from './ColorPickerWrap';
 import Button from './Button';
 import Ball from './Ball';
 import CreateRandomColor from '../HelperMethods/CreateRandomColor';
-import  './App.css'; 
 
 const Animation = ()=> {
   const [colors, setColors] = useState([CreateRandomColor(), CreateRandomColor(),CreateRandomColor()]);
@@ -34,7 +33,7 @@ const Animation = ()=> {
       <div>
         <Button onClick={addColor}>Add Color</Button>
         <Button onClick={clickAnimationBounce} status={stateAnimation}>Bounce ball</Button> 
-        <Button onClick={clickAnimationColor} status={stateAnimationColor}>Change colors</Button>
+        <Button onClick={clickAnimationColor} status={stateAnimationColor}>Change colors </Button>
       </div>
      </React.Fragment>
   );
