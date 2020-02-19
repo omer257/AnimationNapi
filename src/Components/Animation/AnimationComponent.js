@@ -29,7 +29,7 @@ const Animation = ()=> {
   return (
     <React.Fragment> 
       <ColorPickerWrap colors={colors} handleColorPickerComplete={handleColorPickerComplete}></ColorPickerWrap>
-      <Ball toggle={stateAnimation} showColor={stateAnimationColor} colorList={colors} className={!stateAnimation?'pause':''}></Ball>
+      <Ball toggle={stateAnimation} showColor={stateAnimationColor} colorList={colors} stateAnimation={stateAnimation} stateAnimationColor={stateAnimationColor}></Ball>
       <div>
         <Button onClick={addColor}>Add Color</Button>
         <Button onClick={clickAnimationBounce} status={stateAnimation}>Bounce ball</Button> 

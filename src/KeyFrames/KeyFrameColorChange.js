@@ -2,10 +2,10 @@ import { css, keyframes } from 'styled-components'
 
 const changeColors = props =>
   {  
-    if(!props.showColor){ 
-      //return simple animation
-      return keyframes`0% { background-color:${props.colorList[0]};} 100% { background-color:${props.colorList[0]};}`; 
-    }
+    // if(!props.showColor){ 
+    //   //return simple animation
+    //   return keyframes`0% { background-color:${props.colorList[0]};} 100% { background-color:${props.colorList[0]};}`; 
+    // }
     const segmentLength = 100/props.colorList.length;
     let buildKeyFrames='';
     for(let i=0;i<props.colorList.length;i++){  

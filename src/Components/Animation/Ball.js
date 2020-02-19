@@ -4,23 +4,29 @@ import KeyFrameBounce from '../../KeyFrames/KeyFrameBounce';
 import KeyFrameColorChange from '../../KeyFrames/KeyFrameColorChange';  
 
 const BALL_SIZE = "48px";   
-const BallComponent = styled.div`
-width: ${BALL_SIZE};
-height: ${BALL_SIZE}; 
+const BallWrapper = styled.div` 
 top: calc(50% - ${BALL_SIZE} / 2);
 transform: translateY(calc(50% - ${BALL_SIZE} / 2));
-position: absolute;
-border:1px solid black; 
-border-radius:100%;
+position: absolute; 
 left: calc(50% - ${BALL_SIZE} / 2);
 animation: 
-${KeyFrameBounce},
+${KeyFrameBounce} 
+`;
+
+const BallComponent = styled.div`
+width: ${BALL_SIZE};
+height: ${BALL_SIZE};  
+border:1px solid black; 
+border-radius:100%; 
+animation:  
 ${KeyFrameColorChange} 
 `;
 
 const Ball = (props)=> {  
   return ( 
-      <BallComponent {...props}/>
+    <BallWrapper {...props} className={!props.stateAnimation?'pause':''}>
+      <BallComponent {...props} className={!props.stateAnimationColor?'pause':''}></BallComponent> 
+    </BallWrapper> 
   );
 }
 

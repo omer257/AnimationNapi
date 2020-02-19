@@ -2,7 +2,7 @@ import React from 'react';
 import { useHttp } from '../Hooks/Http'
 
 const Fetch = ()=>{
-  const [isLoading, fetchedData] = useHttp('http://jsonplaceholder.typicode.com/todos', []);
+  const [isLoading, fetchedData] = useHttp('https://jsonplaceholder.typicode.com/todos', []);
 
   const todos = fetchedData
     ? fetchedData.filter((item) => item.title.startsWith("s")).sort(compare)
