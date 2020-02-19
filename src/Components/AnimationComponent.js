@@ -1,5 +1,5 @@
 import React, { useState } from "react"; 
-import ColorPickerWrap from './ColorPickerWrap'; 
+import ColorPickerWrap from './ColorPickers/ColorPickerWrap'; 
 import Button from './Button';
 import Ball from './Ball';
 import CreateRandomColor from '../HelperMethods/CreateRandomColor';
