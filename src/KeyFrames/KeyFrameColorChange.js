@@ -13,8 +13,6 @@ const changeColors = props =>
     } 
     //Prevent white gaps
     buildKeyFrames+=`100% { background-color:${props.colorList[props.colorList.length-1]};}` 
-
-    console.log(buildKeyFrames);
     
     return keyframes` ${buildKeyFrames}`;   
   }
